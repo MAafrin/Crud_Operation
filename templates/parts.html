@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+{% block body %}
+    <div>
+        <a href="/new_part" class="btn btn-outline-secondary"><img src="static/add_new.png" width="30pxl" height="30pxl"></img></a><br><br>
+    </div>
+    <div>
+        <table>
+            <tr>
+                <th>PART ID</th>
+                <th>PART NAME</th>
+            </tr>
+            {% for rows in rows %}
+                <tr>
+                    <td>{{ rows[0] }}</td>
+                    <td>{{ rows[1] }}</td>
+                    <td style="width: 0px;background-color: white;border: none;"><a href="/delete_part/{{ rows[0] }}"
+                                                                                    class="btn btn-outline-secondary"><img src="static/delete.png" width="30pxl" height="30pxl"></img></a>
+                    </td>
+                    <td style="width: 0px;background-color: white;border: none;"><a href="/update_part/{{ rows[0] }}"
+                                                                                    class="btn btn-outline-secondary"><img src="static/update.png" width="30pxl" height="30pxl"></img></a>
+                    </td>
+                    <td style="width: 0px;background-color: white;border: none;"><a href="/assign_vendor/{{ rows[0] }}"
+                                                                                    class="btn btn-outline-secondary"><img src="static/assign.png" width="30pxl" height="30pxl"></img>
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+{% endblock body %}
